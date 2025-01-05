@@ -12,19 +12,30 @@ npm i @nestixis/nestjs-supabase
 To register the module in your application, you can use the `SupabaseSdkModule.registerAsync` method with a factory pattern:
 
 ```typescript
-import { SupabaseSdkModule } from "@nestixis/nestjs-supabase";
-import { ConfigModule, ConfigService } from "@nestjs/config";
+import { SupabaseSdkModule } from '@nestixis/nestjs-supabase';
+import { Module } from '@nestjs/common';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
 
-SupabaseSdkModule.registerAsync({
-  imports: [ConfigModule],
-  useFactory: (configService: ConfigService) => ({
-    auth: {
-      url: configService.get<string>('SUPABASE_AUTH_URL'),
-      key: configService.get<string>('SUPABASE_SERVICE_ROLE_KEY'),
-    },
-  }),
-  inject: [ConfigService],
-});
+@Module({
+  imports: [
+    SupabaseSdkModule.registerAsync({
+      imports: [ConfigModule],
+      useFactory: (configService: ConfigService) => ({
+        auth: {
+          url: configService.get<string>('SUPABASE_AUTH_URL'),
+          key: configService.get<string>('SUPABASE_SERVICE_ROLE_KEY'),
+        },
+      }),
+      inject: [ConfigService],
+    }),
+  ],
+  controllers: [AppController],
+  providers: [AppService],
+})
+export class AppModule {}
+
 ```
 
 ## Usage
