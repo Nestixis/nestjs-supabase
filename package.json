@@ -1,0 +1,44 @@
+{
+  "name": "@nestixis/nestjs-supabase",
+  "version": "1.0.0",
+  "description": "NestJS wrapper for Supabase SDK",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "directories": {
+    "test": "test"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc",
+    "tsc:publish": "tsc && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nestixis/nestjs-supabase.git"
+  },
+  "keywords": [
+    "nestjs",
+    "supabase"
+  ],
+  "author": "Nestixis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Nestixis/nestjs-supabase/issues"
+  },
+  "homepage": "https://github.com/Nestixis/nestjs-supabase#readme",
+  "peerDependencies": {
+    "@nestjs/common": "^10.4.15",
+    "@supabase/supabase-js": "^2.47.10"
+  },
+  "devDependencies": {
+    "@types/node": "^20.16.5",
+    "@typescript-eslint/eslint-plugin": "^8.5.0",
+    "@typescript-eslint/parser": "^8.5.0",
+    "eslint": "^9.10.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.2"
+  }
+}
