@@ -1,4 +1,4 @@
-# nestjs-supabase
+# NestJS Supabase
 
 ## Installation
 
